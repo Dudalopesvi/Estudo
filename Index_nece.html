@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Profissional 3 Colunas</title>
+    <!-- Vínculo local com o Bootstrap CSS que você baixou -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* Estilo customizado simples para caso queira ajustar algo offline */
+        
+        body {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. BARRA DE NAVEGAÇÃO -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5 shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Meu Projeto</a>
+            <span class="navbar-text text-white-50">Modo Offline Ativo</span>
+        </div>
+    </nav>
+
+    <!-- 2. CONTEÚDO PRINCIPAL (SISTEMA DE GRID DE 3 COLUNAS) -->
+    <main class="container">
+        <!-- Linha do título e do botão do Modal -->
+        <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+            <h1 class="h2 text-secondary fw-semibold">Visão Geral</h1>
+            <!-- Botão que ativa o Modal (Atributos data-bs são obrigatórios) -->
+            <button type="button" class="btn btn-primary px-4 shadow-sm" data-bs-toggle="modal" data-bs-target="#meuModal">
+                Abrir Modal
+            </button>
+        </div>
+
+        <!-- Linha das 3 Colunas Verticais -->
+        <!-- O 'row-cols-md-3' garante exatamente 3 colunas em telas médias/grandes -->
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <!-- Coluna 1 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="p-2 bg-primary-subtle text-primary rounded-3 d-inline-block mb-3">
+                            <!-- Espaço para um ícone ou número -->
+                            <span class="fw-bold">01</span>
+                        </div>
+                        <h5 class="card-title fw-bold">Coluna Esquerda</h5>
+                        <p class="card-text text-muted">Insira aqui o primeiro conjunto de informações. Este layout se adapta de forma totalmente responsiva.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <a href="#" class="btn btn-outline-secondary btn-sm w-100">Ação 1</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna 2 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="p-2 bg-success-subtle text-success rounded-3 d-inline-block mb-3">
+                            <span class="fw-bold">02</span>
+                        </div>
+                        <h5 class="card-title fw-bold">Coluna Central</h5>
+                        <p class="card-text text-muted">Insira o conteúdo do meio aqui. Ideal para destacar a funcionalidade principal da sua tela.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <a href="#" class="btn btn-outline-secondary btn-sm w-100">Ação 2</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coluna 3 -->
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="p-2 bg-warning-subtle text-warning rounded-3 d-inline-block mb-3">
+                            <span class="fw-bold">03</span>
+                        </div>
+                        <h5 class="card-title fw-bold">Coluna Direita</h5>
+                        <p class="card-text text-muted">Insira o terceiro bloco. Perfeito para métricas secundárias, contatos ou links úteis adicionais.</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-0 pb-3">
+                        <a href="#" class="btn btn-outline-secondary btn-sm w-100">Ação 3</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. COMPONENTE MODAL (Invisível por padrão, aparece ao clicar no botão) -->
+    <div class="modal fade" id="meuModal" tabindex="-1" aria-labelledby="meuModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg">
+                <!-- Cabeçalho do Modal -->
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title fw-bold" id="meuModalLabel">Título do Modal</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <!-- Corpo do Modal (Onde você edita o conteúdo) -->
+                <div class="modal-body py-4">
+                    <p class="mb-0 text-secondary">Este é o corpo do seu modal profissional. Você pode adicionar formulários, textos longos ou listas aqui dentro inteiramente offline.</p>
+                </div>
+                <!-- Rodapé do Modal com Botões -->
+                <div class="modal-footer bg-light">
+                    <button type="button" class="btn btn-secondary px-3" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary px-3">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. RODAPÉ SIMPLES -->
+    <footer class="container text-center text-muted mt-5 pt-4 border-top">
+        <p>&copy; 2026 - Desenvolvido de Forma Eficiente.</p>
+    </footer>
+
+    <!-- Vínculo local com o Bootstrap JS que você baixou -->
+    <!-- (Essencial para o funcionamento do Modal e do botão de fechar) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

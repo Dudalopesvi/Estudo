@@ -1,0 +1,609 @@
+/* ===================== RESET E BASE ===================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+
+/* ===================== LAYOUT GERAL (2 COLUNAS) ===================== */
+
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* ===================== COLUNA 1 — PERFIL ===================== */
+
+.perfil {
+    width: 280px;
+    min-width: 280px;
+    background-color: #333333;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.perfil-topo {
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.perfil-identidade {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.perfil-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.perfil-nome {
+    color: #FFFFFF;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+
+/* FOTO DO USUÁRIO */
+
+.perfil-usuario-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+
+.perfil-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #FFFFFF;
+    background-color: #333333;
+}
+
+.perfil-usuario-nome {
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.perfil-totais {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.total-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.total-valor {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.total-label {
+    font-size: 0.75rem;
+    color: #FFFFFF;
+    opacity: 0.8;
+}
+
+.btn-atividades {
+    background: transparent;
+    color: #FFFFFF;
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.95rem;
+    width: 100%;
+}
+
+.btn-atividades:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.btn-atividades:not(:disabled):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.perfil-rodape {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.rodape-nome {
+    font-weight: 600;
+}
+
+
+/* REDES SOCIAIS */
+
+.rodape-redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin: 4px 0;
+}
+
+.rodape-redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rodape-redes img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.rodape-redes img:hover {
+    opacity: 0.8;
+    transform: scale(1.15);
+}
+
+.rodape-copyright {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+
+/* ===================== COLUNA 2 — MAIN ===================== */
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 24px;
+}
+
+.main-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-nova-atividade {
+    background-color: #483DAD;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-nova-atividade:hover:not(:disabled) {
+    opacity: 0.9;
+}
+
+.btn-nova-atividade:disabled {
+    background-color: rgba(72, 61, 173, 0.4);
+    cursor: not-allowed;
+}
+
+
+/* ===================== FILTROS ===================== */
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.filtro-item {
+    background-color: #333333;
+    color: #FFFFFF;
+    padding: 10px 22px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.filtro-item:hover {
+    opacity: 0.85;
+}
+
+.filtro-item.ativo {
+    background-color: #483DAD;
+}
+
+
+/* ===================== LISTAGEM DE ATIVIDADES ===================== */
+
+.listagem {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.card-atividade {
+    border: 1px solid rgba(51, 51, 51, 0.2);
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    background-color: #FFFFFF;
+}
+
+.card-titulo {
+    text-align: center;
+    color: #333333;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.card-corpo {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.card-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.card-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.85rem;
+}
+
+.card-usuario {
+    font-weight: 600;
+    color: #000000;
+}
+
+.card-detalhe {
+    color: #333333;
+}
+
+.card-data {
+    color: #333333;
+    opacity: 0.7;
+    font-size: 0.78rem;
+}
+
+.card-interacoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+.interacao-btn {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: #333333;
+}
+
+.interacao-btn img {
+    width: 18px;
+    height: 18px;
+    transition: filter 0.2s;
+}
+
+.interacao-btn:hover img {
+    filter: invert(19%) sepia(89%) saturate(3000%) hue-rotate(240deg);
+}
+
+.interacao-btn.curtido span {
+    color: #FF0000;
+    font-weight: 600;
+}
+
+.icone-coracao {
+    fill: none;
+    stroke: #333333;
+    transition: fill 0.2s, stroke 0.2s;
+}
+
+.interacao-btn.curtido .icone-coracao {
+    fill: #FF0000;
+    stroke: #FF0000;
+}
+
+
+/* ===================== COMENTÁRIOS ===================== */
+
+.painel-comentarios {
+    border-top: 1px solid rgba(51, 51, 51, 0.15);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.painel-comentarios.hidden {
+    display: none;
+}
+
+.lista-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 140px;
+    overflow-y: auto;
+}
+
+.comentario-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8rem;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(51, 51, 51, 0.15);
+    border-radius: 6px;
+    padding: 6px 8px;
+}
+
+.comentario-autor {
+    font-weight: 600;
+    color: #483DAD;
+}
+
+.comentario-texto {
+    color: #333333;
+}
+
+.comentario-vazio,
+.comentario-carregando {
+    font-size: 0.8rem;
+    color: #333333;
+    opacity: 0.7;
+}
+
+.form-comentario {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-comentario textarea {
+    font-family: inherit;
+    font-size: 0.85rem;
+    padding: 6px 8px;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    resize: vertical;
+}
+
+.comentario-erro {
+    font-size: 0.78rem;
+    color: #FF0000;
+}
+
+.comentario-erro.hidden {
+    display: none;
+}
+
+.btn-comentar {
+    align-self: flex-end;
+    background-color: #483DAD;
+    color: #FFFFFF;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-comentar:hover {
+    opacity: 0.9;
+}
+
+.listagem-vazia {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #333333;
+    opacity: 0.7;
+    padding: 32px 0;
+}
+
+
+/* ===================== PAGINAÇÃO ===================== */
+
+.paginacao {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pagina-item {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    color: #333333;
+    border: 1px solid #333333;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.pagina-item.ativo {
+    background-color: #483DAD;
+    color: #FFFFFF;
+    border-color: #483DAD;
+}
+
+.pagina-item:hover:not(.ativo) {
+    background-color: rgba(51, 51, 51, 0.08);
+}
+
+
+/* ===================== MODAL DE LOGIN ===================== */
+
+.modal-overlay {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-caixa {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 28px;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    background: transparent;
+    font-size: 1.3rem;
+    color: #333333;
+    line-height: 1;
+}
+
+.modal-titulo {
+    color: #333333;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.modal-erro {
+    color: #FF0000;
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 6px;
+}
+
+.modal-erro.hidden {
+    display: none;
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.modal-form label {
+    font-size: 0.85rem;
+    color: #333333;
+    margin-top: 8px;
+}
+
+.modal-form input,
+.modal-form select {
+    padding: 8px 10px;
+    border: 1px solid rgba(51, 51, 51, 0.35);
+    border-radius: 4px;
+    font-family: inherit;
+    outline: none;
+}
+
+.modal-form input.error,
+.modal-form select.error {
+    border-color: #FF0000;
+}
+
+.modal-botoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btn-entrar,
+.btn-cancelar {
+    flex: 1;
+    padding: 10px 0;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-entrar {
+    background-color: #483DAD;
+    color: #FFFFFF;
+}
+
+.btn-cancelar {
+    background-color: #FFFFFF;
+    color: #333333;
+    border: 1px solid #333333;
+}
+
+.btn-entrar:hover,
+.btn-cancelar:hover {
+    opacity: 0.9;
+}
+
+
+/* ===================== RESPONSIVO ===================== */
+
+@media (max-width: 720px) {
+    .layout {
+        flex-direction: column;
+    }
+    .perfil {
+        width: 100%;
+        min-height: auto;
+    }
+    .filtros {
+        flex-wrap: wrap;
+    }
+}
