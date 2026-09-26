@@ -1,0 +1,137 @@
+# 🛠️ Guia Rápido de Comandos (GitHub & Dependências)
+
+Este é um guia de referência rápida para gerenciamento de repositórios com **Git/GitHub** e instalação de dependências locais usando **npm** e **yarn**.
+
+---
+
+## 🚀 1. Comandos Principais do Git & GitHub
+
+### Configuração Inicial (Apenas na primeira vez)
+```bash
+# Configura seu usuário globalmente
+git config --global user.name "Seu Nome"
+git config --global user.email "seu-email@email.com"
+```
+
+### Iniciando e Vinculando um Repositório
+```bash
+# Inicializa o Git na pasta atual do projeto
+git init
+
+# Cria a branch principal como 'main' (padrão atual)
+git checkout -b main
+
+# Vincula a sua pasta local ao repositório criado no GitHub
+git remote add origin https://github.com
+```
+
+### Fluxo Diário de Trabalho (Salvar e Enviar)
+```bash
+# 1. Verifica quais arquivos foram modificados
+git status
+
+# 2. Adiciona todos os arquivos modificados para o "combio"
+git add .
+
+# 3. Salva as alterações localmente com uma mensagem explicativa
+git commit -m "feat: estrutura inicial de 3 colunas e modal"
+
+# 4. Envia as alterações locais para o GitHub
+git push -origin main
+```
+
+### Atualizando e Sincronizando o Código
+```bash
+# Baixa as atualizações do GitHub para a sua máquina
+git pull origin main
+
+# Lista todas as branches (ramificações) do projeto
+git branch
+
+# Cria e muda para uma nova branch (para testar algo sem quebrar o código principal)
+git checkout -b minha-nova-funcionalidade
+```
+
+---
+
+## 📦 2. Instalação de Dependências e Pacotes
+
+Se você for evoluir este projeto para usar frameworks modernos (como Node.js, React ou Vite) no futuro, use estes comandos para gerenciar os pacotes.
+
+### Usando o NPM (Padrão do Node.js)
+```bash
+# Inicializa um novo projeto Node.js (cria o arquivo package.json)
+npm init -y
+
+# Instala todas as dependências listadas no package.json (use quando baixar um projeto pronto)
+npm install
+
+# Instala um pacote específico como dependência de produção (ex: bootstrap)
+npm install bootstrap
+
+# Instala um pacote apenas para o ambiente de desenvolvimento (ex: tailwindcss)
+npm install -D tailwindcss
+```
+
+### Usando o Yarn (Alternativa mais rápida ao NPM)
+```bash
+# Inicializa um novo projeto
+yarn init -y
+
+# Instala todas as dependências do projeto
+yarn
+
+# Instala um pacote de produção
+yarn add bootstrap
+
+# Instala um pacote de desenvolvimento
+yarn add --dev tailwindcss
+```
+
+---
+
+## 📂 3. Dica de Ouro: O Arquivo `.gitignore`
+
+Crie um arquivo chamado exatamente `.gitignore` na raiz do seu projeto para evitar que arquivos pesados ou senhas sejam enviados ao GitHub por engano. Adicione estas linhas dentro dele:
+
+```text
+node_modules/
+.env
+dist/
+build/
+.DS_Store
+```
+
+
+
+
+### Alterando a Branch Padrão de 'master' para 'main'
+Use estes comandos caso o seu repositório local antigo ainda use o termo `master` e você precise migrar para o padrão atual `main`:
+
+```bash
+# 1. Renomeia a sua branch local de 'master' para 'main'
+git branch -m master main
+
+# 2. Envia a nova branch 'main' para o GitHub
+git push -u origin main
+
+# 3. Exclui a branch 'master' antiga do repositório remoto (GitHub)
+git push origin --delete master
+```
+
+
+
+
+### Alterando a Branch Padrão de 'master' para 'main'
+Use estes comandos caso o seu repositório local antigo ainda use o termo `master` e você precise migrar para o padrão atual `main`:
+
+```bash
+# 1. Renomeia a sua branch local de 'master' para 'main'
+git branch -m master main
+
+# 2. Envia a nova branch 'main' para o GitHub
+git push -u origin main
+
+# 3. Exclui a branch 'master' antiga do repositório remoto (GitHub)
+git push origin --delete master
+```
